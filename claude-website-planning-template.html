@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website Planning Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Kannada MN', 'Georgia', serif;
+            line-height: 1.7;
+            color: #141413;
+            background-color: #F0EFEA;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #F0EFEA;
+            padding: 50px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        h1 {
+            color: #141413;
+            margin-bottom: 12px;
+            font-size: 2.5em;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
+        
+        h1:hover {
+            color: #CC785C;
+        }
+        
+        h2 {
+            color: #141413;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            font-size: 1.75em;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            position: relative;
+            padding-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #CC785C;
+            transition: width 0.4s ease;
+        }
+        
+        h2:hover::after {
+            width: 60px;
+        }
+        
+        h3 {
+            color: #141413;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            font-size: 1.25em;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        h3:hover {
+            color: #CC785C;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.125em;
+            margin-bottom: 32px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .subtitle:hover {
+            color: #CC785C;
+            transform: translateX(5px);
+        }
+        
+        .overview {
+            background-color: #F0EFEA;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border-left: 3px solid #CC785C;
+            color: #4a4a4a;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(204, 120, 92, 0.03) 0%, transparent 100%);
+            transition: width 0.4s ease;
+            z-index: 0;
+        }
+        
+        .overview:hover::before {
+            width: 100%;
+        }
+        
+        .overview:hover {
+            transform: translateX(5px);
+            border-left-width: 5px;
+        }
+        
+        .overview * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .checklist li {
+            padding: 14px 16px;
+            margin: 8px 0;
+            background-color: #F0EFEA;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e5e5;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background-color: #CC785C;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .checklist li:hover {
+            background-color: #F0EFEA;
+            border-color: #CC785C;
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(217, 113, 69, 0.1);
+        }
+        
+        .checklist li:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .checklist input[type="checkbox"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .checklist label {
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .checklist li.checked {
+            background-color: #F0EFEA;
+            text-decoration: line-through;
+            color: #999;
+            border-color: #CC785C;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .checklist li.checked::before {
+            transform: scaleY(1);
+        }
+        
+        .prompt-section {
+            background-color: #F0EFEA;
+            border-left: 3px solid #CC785C;
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .prompt-section:hover {
+            transform: translateX(5px);
+            border-left-width: 5px;
+            box-shadow: 0 4px 16px rgba(217, 113, 69, 0.08);
+        }
+        
+        .prompt-section h4 {
+            color: #141413;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+        
+        .prompt-section:hover h4 {
+            color: #CC785C;
+        }
+        
+        .prompt-section h4:before {
+            content: "Claude";
+            margin-right: 8px;
+            color: #CC785C;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .prompt-section:hover h4:before {
+            transform: scale(1.1);
+        }
+        
+        .prompt-list {
+            list-style: none;
+        }
+        
+        .prompt-list li {
+            padding: 12px 16px;
+            margin: 8px 0;
+            background-color: #F0EFEA;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e5e5;
+            color: #4a4a4a;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prompt-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(217, 113, 69, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .prompt-list li:hover::before {
+            transform: scale(2);
+        }
+        
+        .prompt-list li:hover {
+            background-color: #F0EFEA;
+            border-color: #CC785C;
+            color: #141413;
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 4px 16px rgba(217, 113, 69, 0.15);
+        }
+        
+        .prompt-list li:active {
+            transform: translateX(10px) scale(0.98);
+        }
+        
+        .prompt-list li:before {
+            content: "";
+            margin-right: 0;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            font-family: 'Kannada MN', 'Georgia', serif;
+            font-size: 0.9375em;
+            resize: vertical;
+            background-color: #F0EFEA;
+            color: #141413;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #CC785C;
+            box-shadow: 0 0 0 3px rgba(217, 113, 69, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 10px 0;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            font-family: 'Kannada MN', 'Georgia', serif;
+            font-size: 0.9375em;
+            background-color: #F0EFEA;
+            color: #141413;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #CC785C;
+            box-shadow: 0 0 0 3px rgba(217, 113, 69, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .tips {
+            background-color: #F0EFEA;
+            border-left: 3px solid #CC785C;
+            padding: 24px;
+            margin: 8px 0 32px 0;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .tips:hover {
+            transform: translateX(5px);
+            border-left-width: 5px;
+            box-shadow: 0 4px 16px rgba(217, 113, 69, 0.08);
+        }
+        
+        .tips h3:before {
+            content: "";
+        }
+        
+        .button {
+            background-color: #141413;
+            color: #F0EFEA;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9375em;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-family: 'IBM Plex Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .button:hover {
+            background-color: #1f1f1e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 26, 26, 0.2);
+        }
+        
+        .button:active {
+            transform: translateY(-1px);
+        }
+        
+        .button.secondary {
+            background-color: #F0EFEA;
+            color: #141413;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .button.secondary::before {
+            background: rgba(217, 113, 69, 0.1);
+        }
+        
+        .button.secondary:hover {
+            background-color: #F0EFEA;
+            border-color: #CC785C;
+            color: #CC785C;
+            box-shadow: 0 8px 20px rgba(217, 113, 69, 0.15);
+        }
+        
+        .project-section {
+            background-color: #F0EFEA;
+            padding: 24px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .project-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(217, 113, 69, 0.03) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        
+        .project-section:hover::before {
+            opacity: 1;
+        }
+        
+        .project-section:hover {
+            border-color: #CC785C;
+            box-shadow: 0 8px 24px rgba(217, 113, 69, 0.12);
+            transform: translateY(-4px);
+        }
+        
+        .project-section * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-section.removing {
+            animation: slideOut 0.4s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideOut {
+            0% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-20px) scale(0.95);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(-100%) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        .project-section h4 {
+            color: #141413;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .project-section:hover h4 {
+            color: #CC785C;
+        }
+        
+        .remove-project {
+            background: white;
+            color: #dc2626;
+            border: 1px solid #e5e5e5;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-family: 'IBM Plex Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .remove-project::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .remove-project:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .remove-project:hover {
+            background: white;
+            border-color: #dc2626;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.2);
+        }
+        
+        .remove-project:active {
+            transform: translateY(0) scale(1);
+        }
+        
+        .progress-bar {
+            position: sticky;
+            top: 20px;
+            background-color: #F0EFEA;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: none;
+            z-index: 100;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+        
+        .progress-bar:hover {
+            box-shadow: 0 4px 16px rgba(217, 113, 69, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .progress-bar-fill {
+            height: 8px;
+            background: linear-gradient(90deg, #CC785C 0%, #e89b73 100%);
+            border-radius: 4px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-text {
+            margin-top: 10px;
+            font-size: 0.875em;
+            color: #666;
+            font-weight: 600;
+            font-family: 'IBM Plex Sans', sans-serif;
+            transition: color 0.3s ease;
+        }
+        
+        .progress-bar:hover .progress-text {
+            color: #CC785C;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✱ Personal Website Planning Template</h1>
+        <div class="subtitle">Build an Authentic Portfolio with Claude</div>
+        
+        <div class="progress-bar" style="margin-top: 8px;">
+            <div class="progress-bar-fill" id="progressBar"></div>
+            <div class="progress-text" id="progressText">0% Complete</div>
+        </div>
+        
+        <div class="overview">
+            <p>Use this template to plan and build a personal website that showcases your best work and positions you for future opportunities. Work through each step sequentially, using Claude as your planning partner.</p>
+        </div>
+        
+        <div style="margin: 20px 0;">
+            <button class="button" onclick="saveProgress()">💾 Save Progress</button>
+            <button class="button secondary" onclick="loadProgress()">📂 Load Progress</button>
+            <button class="button secondary" onclick="clearProgress()">🗑️ Clear All</button>
+        </div>
+
+        <h2>📦 Step 1: What Do You Want to Showcase?</h2>
+        
+        <div class="overview">
+            <strong>Overview:</strong> Start by gathering all your work, projects, and experiences in one place. This "work dump" helps you see everything you have to work with before making decisions about what to feature.
+        </div>
+        
+        <h3>Your Tasks</h3>
+        <ul class="checklist">
+            <li><input type="checkbox" id="task1-1"><label for="task1-1">Open a new Claude Project dedicated to your website</label></li>
+            <li><input type="checkbox" id="task1-2"><label for="task1-2">Describe all your projects, accomplishments, and experiences</label></li>
+            <li><input type="checkbox" id="task1-3"><label for="task1-3">Upload relevant files: portfolio pieces, writing samples, screenshots, presentations, etc.</label></li>
+            <li><input type="checkbox" id="task1-4"><label for="task1-4">Set project instructions explaining your goals and target audience</label></li>
+        </ul>
+        
+        <h3>Reflection Framework</h3>
+        <p>For each significant project or experience, document:</p>
+        
+        <div id="projects-container"></div>
+        
+        <button class="button" onclick="addProject()">➕ Add Another Project</button>
+        
+        <div class="prompt-section">
+            <h4>Claude Prompts for Step 1</h4>
+            <p><strong>For organizing your work:</strong></p>
+            <ul class="prompt-list">
+                <li onclick="copyToClipboard(this)">I've uploaded my work samples. Can you help me identify the strongest, most compelling pieces?</li>
+                <li onclick="copyToClipboard(this)">What themes or patterns do you see across all my projects?</li>
+                <li onclick="copyToClipboard(this)">Help me organize these projects by [skill area / industry / impact type]</li>
+            </ul>
+            <p><strong>For deepening your reflections:</strong></p>
+            <ul class="prompt-list">
+                <li onclick="copyToClipboard(this)">What follow-up questions should I answer to make this project description more compelling?</li>
+                <li onclick="copyToClipboard(this)">What details am I missing that would help someone understand the impact of this work?</li>
+                <li onclick="copyToClipboard(this)">Based on this project, what unique strengths do you see in my approach?</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Step 2: How Do You Want to Position Yourself?</h2>
+        
+        <div class="overview">
+            <strong>Overview:</strong> Look beyond individual projects to find the through-line in your work. Your positioning helps visitors quickly understand who you are, what you're great at, and why it matters.
+        </div>
+        
+        <h3>Core Reflection Questions</h3>
+        
+        <div style="margin: 20px 0;">
+            <strong>What types of problems are you most drawn to solving?</strong>
+            <textarea id="problems" placeholder="Think about the challenges that energize you..."></textarea>
+            
+            <strong>Which solution spaces do you feel strongest in, and why?</strong>
+            <textarea id="solutions" placeholder="What areas do you excel in?"></textarea>
+            
+            <strong>What strengths consistently show up across your projects?</strong>
+            <textarea id="strengths" placeholder="What do collaborators or clients value about working with you?"></textarea>
+            
+            <strong>What makes you different from others in your field?</strong>
+            <textarea id="unique" placeholder="What perspectives or approaches set you apart?"></textarea>
+        </div>
+        
+        <h3>Craft Your Positioning Statement</h3>
+        <p>Use this framework to create a clear, compelling one-liner:</p>
+        <p style="font-style: italic; margin: 15px 0;">"I'm a [role] who [unique strength/approach] so that [impact you create]"</p>
+        
+        <div style="margin: 20px 0;">
+            <strong>Your draft:</strong>
+            <textarea id="positioning-draft" placeholder="I'm a..."></textarea>
+            
+            <strong>Refined version:</strong>
+            <textarea id="positioning-refined" placeholder="After getting Claude's feedback..."></textarea>
+        </div>
+        
+        <div class="prompt-section">
+            <h4>Claude Prompts for Step 2</h4>
+            <p><strong>For finding patterns:</strong></p>
+            <ul class="prompt-list">
+                <li onclick="copyToClipboard(this)">Looking at all my work samples, what patterns do you see that I might be missing?</li>
+                <li onclick="copyToClipboard(this)">What unique strengths or approaches consistently appear across my projects?</li>
+                <li onclick="copyToClipboard(this)">How would you describe what makes my work distinctive?</li>
+            </ul>
+            <p><strong>For refining your positioning:</strong></p>
+            <ul class="prompt-list">
+                <li onclick="copyToClipboard(this)">Here's my positioning statement: [insert yours]. Can you critique it for specificity and impact?</li>
+                <li onclick="copyToClipboard(this)">Help me sharpen the language in this positioning to be more compelling and memorable</li>
+                <li onclick="copyToClipboard(this)">Is my positioning statement too broad? How can I make it more specific?</li>
+                <li onclick="copyToClipboard(this)">Does my positioning align with the work samples I've shared?</li>
+            </ul>
+        </div>
+
+        <h2>🎨 Step 3: What's Your Website Layout and Design?</h2>
+        
+        <div class="overview">
+            <strong>Overview:</strong> Design your website's branding and structure to reinforce your positioning and appeal to your target audience. Every design choice should support how you want to be perceived.
+        </div>
+        
+        <h3>Branding Direction</h3>
+        
+        <div style="margin: 20px 0;">
+            <strong>How do you want visitors to perceive you?</strong>
+            <textarea id="perception" placeholder="Examples: innovative and bold, thoughtful and detail-oriented, approachable and collaborative..."></textarea>
+            
+            <strong>Target audience:</strong>
+            <textarea id="audience" placeholder="Who is this website primarily for? Examples: potential employers, clients, collaborators..."></textarea>
+            
+            <strong>Tone and personality:</strong>
+            <textarea id="tone" placeholder="What feeling should your website convey?"></textarea>
+        </div>
+        
+        <h3>Layout and Structure</h3>
+        <p><strong>Core sections to include:</strong></p>
+        <ul class="checklist">
+            <li><input type="checkbox" id="section-home"><label for="section-home">Home / Introduction</label></li>
+            <li><input type="checkbox" id="section-about"><label for="section-about">About / Background</label></li>
+            <li><input type="checkbox" id="section-work"><label for="section-work">Work / Portfolio</label></li>
+            <li><input type="checkbox" id="section-skills"><label for="section-skills">Skills / Expertise</label></li>
+            <li><input type="checkbox" id="section-contact"><label for="section-contact">Contact</label></li>
+            <li><input type="checkbox" id="section-blog"><label for="section-blog">Blog / Writing (optional)</label></li>
+        </ul>
+        
+        <div style="margin: 20px 0;">
+            <strong>Content grouping strategy:</strong>
+            <textarea id="grouping" placeholder="How will you organize your projects? By skill type, industry, chronologically, by impact area?"></textarea>
+            
+            <strong>Priority hierarchy:</strong>
+            <textarea id="hierarchy" placeholder="What should visitors see first? What's the journey through your site?"></textarea>
+            
+            <strong>Special considerations:</strong>
+            <textarea id="special" placeholder="Any unique features or sections that support your positioning?"></textarea>
+        </div>
+        
+        <div class="prompt-section">
+            <h4>Claude Prompts for Step 3</h4>
+            <p><strong>For branding and visual identity:</strong></p>
+            <ul class="prompt-list">
+                <li onclick="copyToClipboard(this)">Based on my positioning as [your positioning], what color palette would align with how I want to be perceived?</li>
+                <li onclick="copyToClipboard(this)">Suggest a brand style guide that matches my target audience and desired tone</li>
+                <li onclick="copyToClipboard(this)">Generate 3-5 color palette options with hex codes that would work for [your field/positioning]</li>
+                <li onclick="copyToClipboard(this)">What typography pairings would reinforce my brand as [desired perception]?</li>
+            </ul>
+            <p><strong>For layout and structure:</strong></p>
+            <ul class="prompt-list">
+                <li onclick="copyToClipboard(this)">What's the optimal information architecture for my website given my content and goals?</li>
+                <li onclick="copyToClipboard(this)">What layout would best showcase my [type of work]?</li>
+                <li onclick="copyToClipboard(this)">Help me decide what content should go on the homepage vs. dedicated pages</li>
+                <li onclick="copyToClipboard(this)">How should I organize my portfolio to make the strongest impression?</li>
+            </ul>
+        </div>
+
+        <h2>✅ Implementation Checklist</h2>
+        
+        <h3>Planning Phase (Steps 1-3)</h3>
+        <ul class="checklist">
+            <li><input type="checkbox" id="impl-dump"><label for="impl-dump">Complete work dump in Claude Project</label></li>
+            <li><input type="checkbox" id="impl-reflections"><label for="impl-reflections">Write reflections for major projects</label></li>
+            <li><input type="checkbox" id="impl-positioning"><label for="impl-positioning">Finalize positioning statement</label></li>
+            <li><input type="checkbox" id="impl-design"><label for="impl-design">Choose design direction and color palette</label></li>
+            <li><input type="checkbox" id="impl-structure"><label for="impl-structure">Create detailed website structure outline</label></li>
+        </ul>
+
+        <div class="tips">
+            <h3>Tips for Success</h3>
+            <p><strong>Keep everything in your Claude Project:</strong> Save this template, your reflections, and all drafts in a single Claude Project so you have all the context in one place.</p>
+            <p><strong>Be specific with Claude:</strong> The more specific your prompts, the better help you'll get. Include examples, constraints, and context.</p>
+            <p><strong>Iterate on your positioning:</strong> Your first draft positioning statement probably won't be perfect—refine it as you work through your content.</p>
+            <p><strong>Show, don't just tell:</strong> Use your project descriptions to demonstrate your skills and approach rather than just listing them.</p>
+            <p><strong>Get feedback:</strong> Share your positioning and key content with trusted colleagues or mentors before finalizing.</p>
+        </div>
+
+        <div class="overview" style="margin-top: 8px; background-color: #F0EFEA; border-left-color: #CC785C;">
+            <h3>Ready to Start?</h3>
+            <p>Open a new Claude Project and begin with Step 1. Your progress in this template will be saved automatically in your browser.</p>
+            <p style="margin-top: 15px; color: #666;"><em>This template is designed for use with Claude (claude.ai) and Claude Projects.</em></p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-save functionality
+        let saveTimeout;
+        let projectCounter = 0;
+        
+        function autoSave() {
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(() => {
+                saveProgress();
+            }, 1000);
+        }
+        
+        function renumberProjects() {
+            const projects = document.querySelectorAll('.project-section');
+            projects.forEach((project, index) => {
+                const newNumber = index + 1;
+                const header = project.querySelector('h4 span');
+                if (header) {
+                    header.textContent = 'Project ' + newNumber;
+                }
+            });
+            // Reset the counter to match actual number of projects
+            projectCounter = projects.length;
+        }
+        
+        function addProject() {
+            projectCounter++;
+            const container = document.getElementById('projects-container');
+            
+            const projectDiv = document.createElement('div');
+            projectDiv.className = 'project-section';
+            projectDiv.id = 'project-' + projectCounter;
+            
+            projectDiv.innerHTML = 
+                '<h4>' +
+                '<span>Project ' + projectCounter + '</span>' +
+                '<button type="button" class="remove-project">🗑️ Remove</button>' +
+                '</h4>' +
+                '<strong>Project/Experience Name:</strong>' +
+                '<input type="text" class="input-field" id="project-name-' + projectCounter + '" placeholder="Enter project name...">' +
+                '<strong>Key actions and highlights:</strong>' +
+                '<textarea id="project-actions-' + projectCounter + '" placeholder="What did you actually do? What were the measurable outcomes? What challenges did you overcome?"></textarea>' +
+                '<strong>Value demonstration:</strong>' +
+                '<textarea id="project-value-' + projectCounter + '" placeholder="What does this project show about your skills? How does this connect to future opportunities? What unique approach did you bring?"></textarea>' +
+                '<strong>Supporting materials:</strong>' +
+                '<textarea id="project-materials-' + projectCounter + '" placeholder="Links, files, or visual assets..."></textarea>';
+            
+            container.appendChild(projectDiv);
+            
+            // Add event listener to remove button after creating it
+            const removeBtn = projectDiv.querySelector('.remove-project');
+            const currentCounter = projectCounter; // Capture in closure
+            removeBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to remove this project?')) {
+                    const projectToRemove = document.getElementById('project-' + currentCounter);
+                    if (projectToRemove) {
+                        // Add removing class for animation
+                        projectToRemove.classList.add('removing');
+                        // Wait for animation to complete before removing
+                        setTimeout(() => {
+                            projectToRemove.remove();
+                            renumberProjects();
+                            autoSave();
+                        }, 400); // Match animation duration
+                    }
+                }
+            });
+            
+            // Add event listeners to inputs
+            projectDiv.querySelectorAll('input, textarea').forEach(input => {
+                input.addEventListener('input', autoSave);
+            });
+            
+            autoSave();
+        }
+        
+        function removeProject(projectNum) {
+            if (confirm('Are you sure you want to remove this project?')) {
+                const project = document.getElementById('project-' + projectNum);
+                if (project) {
+                    project.remove();
+                    autoSave();
+                }
+            }
+        }
+        
+        // Add event listeners to all inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved progress
+            loadProgress();
+            
+            // Add first project if none exist
+            if (document.getElementById('projects-container').children.length === 0) {
+                addProject();
+            }
+            
+            // Checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const li = this.closest('li');
+                    if (li) {
+                        if (this.checked) {
+                            li.classList.add('checked');
+                        } else {
+                            li.classList.remove('checked');
+                        }
+                    }
+                    updateProgress();
+                    autoSave();
+                });
+            });
+            
+            // Text inputs and textareas (non-project ones get listeners here)
+            const inputs = document.querySelectorAll('input[type="text"]:not([id^="project-"]), textarea:not([id^="project-"])');
+            inputs.forEach(input => {
+                input.addEventListener('input', autoSave);
+            });
+            
+            updateProgress();
+        });
+        
+        function saveProgress() {
+            const data = {
+                checkboxes: {},
+                inputs: {},
+                projects: []
+            };
+            
+            // Save checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                if (checkbox.id) {
+                    data.checkboxes[checkbox.id] = checkbox.checked;
+                }
+            });
+            
+            // Save text inputs and textareas (excluding project ones)
+            document.querySelectorAll('input[type="text"]:not([id^="project-"]), textarea:not([id^="project-"])').forEach(input => {
+                if (input.id) {
+                    data.inputs[input.id] = input.value;
+                }
+            });
+            
+            // Save projects
+            const projectSections = document.querySelectorAll('.project-section');
+            projectSections.forEach(section => {
+                const projectId = section.id.split('-')[1];
+                const nameEl = document.getElementById('project-name-' + projectId);
+                const actionsEl = document.getElementById('project-actions-' + projectId);
+                const valueEl = document.getElementById('project-value-' + projectId);
+                const materialsEl = document.getElementById('project-materials-' + projectId);
+                
+                const projectData = {
+                    id: projectId,
+                    name: nameEl ? nameEl.value : '',
+                    actions: actionsEl ? actionsEl.value : '',
+                    value: valueEl ? valueEl.value : '',
+                    materials: materialsEl ? materialsEl.value : ''
+                };
+                data.projects.push(projectData);
+            });
+            
+            // Save the current project counter
+            data.projectCounter = projectCounter;
+            
+            localStorage.setItem('websiteTemplateProgress', JSON.stringify(data));
+            
+            // Show feedback
+            const buttons = document.querySelectorAll('.button');
+            const saveBtn = buttons[0];
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = '✓ Saved!';
+            setTimeout(() => {
+                saveBtn.textContent = originalText;
+            }, 2000);
+        }
+        
+        function loadProgress() {
+            const saved = localStorage.getItem('websiteTemplateProgress');
+            if (!saved) return;
+            
+            try {
+                const data = JSON.parse(saved);
+                
+                // Load checkboxes
+                if (data.checkboxes) {
+                    Object.keys(data.checkboxes).forEach(id => {
+                        const checkbox = document.getElementById(id);
+                        if (checkbox) {
+                            checkbox.checked = data.checkboxes[id];
+                            const li = checkbox.closest('li');
+                            if (li && checkbox.checked) {
+                                li.classList.add('checked');
+                            }
+                        }
+                    });
+                }
+                
+                // Load text inputs and textareas (non-project ones)
+                if (data.inputs) {
+                    Object.keys(data.inputs).forEach(id => {
+                        const input = document.getElementById(id);
+                        if (input) {
+                            input.value = data.inputs[id];
+                        }
+                    });
+                }
+                
+                // Load projects
+                if (data.projects && data.projects.length > 0) {
+                    const container = document.getElementById('projects-container');
+                    container.innerHTML = ''; // Clear existing
+                    
+                    // Restore project counter
+                    projectCounter = data.projectCounter || data.projects.length;
+                    
+                    data.projects.forEach(project => {
+                        const projectDiv = document.createElement('div');
+                        projectDiv.className = 'project-section';
+                        projectDiv.id = 'project-' + project.id;
+                        
+                        projectDiv.innerHTML = 
+                            '<h4>' +
+                            '<span>Project ' + project.id + '</span>' +
+                            '<button type="button" class="remove-project">🗑️ Remove</button>' +
+                            '</h4>' +
+                            '<strong>Project/Experience Name:</strong>' +
+                            '<input type="text" class="input-field" id="project-name-' + project.id + '" placeholder="Enter project name..." value="' + (project.name || '') + '">' +
+                            '<strong>Key actions and highlights:</strong>' +
+                            '<textarea id="project-actions-' + project.id + '" placeholder="What did you actually do? What were the measurable outcomes? What challenges did you overcome?">' + (project.actions || '') + '</textarea>' +
+                            '<strong>Value demonstration:</strong>' +
+                            '<textarea id="project-value-' + project.id + '" placeholder="What does this project show about your skills? How does this connect to future opportunities? What unique approach did you bring?">' + (project.value || '') + '</textarea>' +
+                            '<strong>Supporting materials:</strong>' +
+                            '<textarea id="project-materials-' + project.id + '" placeholder="Links, files, or visual assets...">' + (project.materials || '') + '</textarea>';
+                        
+                        container.appendChild(projectDiv);
+                        
+                        // Add event listener to remove button
+                        const removeBtn = projectDiv.querySelector('.remove-project');
+                        const currentId = project.id; // Capture in closure
+                        removeBtn.addEventListener('click', function() {
+                            if (confirm('Are you sure you want to remove this project?')) {
+                                const projectToRemove = document.getElementById('project-' + currentId);
+                                if (projectToRemove) {
+                                    // Add removing class for animation
+                                    projectToRemove.classList.add('removing');
+                                    // Wait for animation to complete before removing
+                                    setTimeout(() => {
+                                        projectToRemove.remove();
+                                        renumberProjects();
+                                        autoSave();
+                                    }, 400); // Match animation duration
+                                }
+                            }
+                        });
+                        
+                        // Add event listeners to inputs
+                        projectDiv.querySelectorAll('input, textarea').forEach(input => {
+                            input.addEventListener('input', autoSave);
+                        });
+                    });
+                }
+                
+                updateProgress();
+            } catch (e) {
+                console.error('Error loading progress:', e);
+            }
+        }
+        
+        function clearProgress() {
+            if (confirm('Are you sure you want to clear all progress? This cannot be undone.')) {
+                localStorage.removeItem('websiteTemplateProgress');
+                location.reload();
+            }
+        }
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const percentage = total > 0 ? Math.round((checked / total) * 100) : 0;
+            
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            if (progressBar && progressText) {
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '% Complete (' + checked + ' of ' + total + ' tasks)';
+            }
+        }
+        
+        function copyToClipboard(element) {
+            const text = element.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const original = element.textContent;
+                element.textContent = '✓ Copied!';
+                element.style.backgroundColor = '#d4edda';
+                setTimeout(() => {
+                    element.textContent = original;
+                    element.style.backgroundColor = '';
+                }, 1500);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+    </script>
+</body>
+</html>
